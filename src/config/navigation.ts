@@ -1,0 +1,31 @@
+import {
+  BarChart3,
+  Bot,
+  CalendarDays,
+  Clapperboard,
+  Handshake,
+  Home,
+  Library,
+  ListChecks,
+  Map,
+  Mic2,
+  Network,
+  Settings,
+  Users,
+} from "lucide-react";
+
+export const navigationItems = [
+  { title: "Dashboard", href: "/", icon: Home },
+  { title: "Centro de Produção", href: "/centro-producao", icon: Clapperboard },
+  { title: "Episódios", href: "/episodios", icon: Mic2 },
+  { title: "Convidados", href: "/convidados", icon: Users },
+  { title: "Roadmap", href: "/roadmap", icon: Map },
+  { title: "Calendário", href: "/calendario", icon: CalendarDays },
+  { title: "Tarefas", href: "/tarefas", icon: ListChecks },
+  { title: "Redes Sociais", href: "/redes-sociais", icon: Network },
+  { title: "Parceiros", href: "/parceiros", icon: Handshake },
+  { title: "Biblioteca", href: "/biblioteca", icon: Library },
+  { title: "Relatórios", href: "/relatorios", icon: BarChart3 },
+  { title: "IA", href: "/ia", icon: Bot },
+  { title: "Configurações", href: "/configuracoes", icon: Settings },
+] as const;

@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────
+   TEMPCAST HUB — Design System
+   Fonte: Montserrat (official brand font)
+   Cor primária: Golden Yellow #D4A732
+   ────────────────────────────────────────────────── */
+
+:root {
+  /* Brand Gold — cor oficial TempCast */
+  --brand-gold: #d4a732;
+  --brand-gold-hover: #b8901f;
+  --brand-gold-light: #f0c84a;
+  --brand-gold-dim: rgba(212, 167, 50, 0.12);
+  --brand-gold-mid: rgba(212, 167, 50, 0.25);
+
+  /* Light mode */
+  --background: #fafaf8;
+  --foreground: #1a1a18;
+  --card: #ffffff;
+  --card-foreground: #1a1a18;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a18;
+  --primary: #d4a732;
+  --primary-foreground: #1a1a00;
+  --secondary: #f2efe8;
+  --secondary-foreground: #2a2820;
+  --muted: #f2efe8;
+  --muted-foreground: #6b6860;
+  --accent: #fdf6e3;
+  --accent-foreground: #6b4c00;
+  --destructive: #c0392b;
+  --border: #e5e1d4;
+  --input: #e5e1d4;
+  --ring: #d4a732;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1a18;
+  --sidebar-accent: #fdf6e3;
+  --sidebar-accent-foreground: #6b4c00;
+
+  /* Radius */
+  --radius: 0.875rem;
+}
+
+.dark {
+  --background: #111110;
+  --foreground: #f5f3ec;
+  --card: #1a1a17;
+  --card-foreground: #f5f3ec;
+  --popover: #1a1a17;
+  --popover-foreground: #f5f3ec;
+  --primary: #d4a732;
+  --primary-foreground: #1a1a00;
+  --secondary: #242320;
+  --secondary-foreground: #f5f3ec;
+  --muted: #242320;
+  --muted-foreground: #99958a;
+  --accent: #2a2418;
+  --accent-foreground: #f0c84a;
+  --destructive: #ff6b5b;
+  --border: #2e2c26;
+  --input: #2e2c26;
+  --ring: #d4a732;
+  --sidebar: #141410;
+  --sidebar-foreground: #f5f3ec;
+  --sidebar-accent: #2a2418;
+  --sidebar-accent-foreground: #f0c84a;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+@layer base {
+  body {
+    background: radial-gradient(
+        circle at top left,
+        rgba(212, 167, 50, 0.08),
+        transparent 30%
+      ),
+      var(--background);
+    color: var(--foreground);
+    font-family: "Montserrat", system-ui, sans-serif;
+    letter-spacing: -0.015em;
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  ::selection {
+    background: rgba(212, 167, 50, 0.22);
+    color: var(--foreground);
+  }
+
+  /* Scrollbar custom */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+
+  input,
+  textarea,
+  select {
+    @apply rounded-2xl border border-input bg-background/80 px-3 py-2 text-sm text-foreground shadow-sm outline-none transition-all duration-200 placeholder:text-muted-foreground focus:border-primary focus:bg-card focus:ring-2 focus:ring-primary/20;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Montserrat", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* ── Superfícies de marca ── */
+  .brand-panel {
+    @apply rounded-[28px] border border-border/70 bg-card/90 shadow-[0_20px_80px_-36px_rgba(15,12,0,0.28)] backdrop-blur-sm;
+  }
+
+  .brand-card {
+    @apply rounded-[24px] border border-border/70 bg-card/85 shadow-[0_14px_45px_-24px_rgba(15,12,0,0.20)] backdrop-blur-sm;
+  }
+
+  /* ── Pills / badges ── */
+  .brand-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-sm font-semibold text-primary;
+  }
+
+  .brand-muted {
+    @apply inline-flex items-center rounded-full border border-border/70 bg-background/75 px-3 py-1 text-sm text-muted-foreground;
+  }
+
+  /* ── Botão primário TempCast ── */
+  .btn-brand {
+    @apply inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow-[0_8px_28px_-10px_rgba(212,167,50,0.65)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#b8901f] hover:shadow-[0_12px_34px_-10px_rgba(212,167,50,0.75)] active:translate-y-0;
+  }
+
+  /* ── Status badges ── */
+  .status-published {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400;
+  }
+  .status-editing {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-semibold text-amber-600 dark:text-amber-400;
+  }
+  .status-scheduled {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-sky-500/10 px-2.5 py-0.5 text-xs font-semibold text-sky-600 dark:text-sky-400;
+  }
+  .status-idea {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-violet-500/10 px-2.5 py-0.5 text-xs font-semibold text-violet-600 dark:text-violet-400;
+  }
+  .status-recorded {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary;
+  }
+
+  /* ── Glow de destaque ── */
+  .brand-glow {
+    box-shadow: 0 0 0 1px rgba(212, 167, 50, 0.2),
+      0 8px 32px -8px rgba(212, 167, 50, 0.4);
+  }
+
+  /* ── Skeleton loader ── */
+  .skeleton {
+    @apply animate-pulse rounded-xl bg-muted;
+  }
+
+  /* ── Input com ícone ── */
+  .input-with-icon {
+    @apply relative flex items-center;
+  }
+  .input-with-icon input {
+    @apply pl-9;
+  }
+  .input-with-icon .icon {
+    @apply absolute left-3 text-muted-foreground;
+  }
+}

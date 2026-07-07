@@ -1,0 +1,17 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "where.exe": true,
+        "/^python\\.exe -c \"from pathlib import Path; p=Path\\(r'Brand/Brand_Guidelines\\.pdf\\.pdf'\\); print\\(p\\.exists\\(\\), p\\.stat\\(\\)\\.st_size if p\\.exists\\(\\) else None\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^New-Item -ItemType Directory -Force -Path \"public/Brand\" \\| Out-Null; Copy-Item \"Brand/TempCast_Logo\\.svg\" \"public/Brand/TempCast_Logo\\.png\" -Force; Write-Host \"copied\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^pnpm exec tsc --noEmit$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
