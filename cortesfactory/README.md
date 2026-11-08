@@ -28,6 +28,11 @@ Instalação do ffmpeg:
 
 Se o ffmpeg estiver noutro sítio, indique o caminho na variável de ambiente `CORTESFACTORY_FFMPEG`.
 
+### Instalar o que falta
+
+- **Windows:** faça duplo clique em `instalar.bat`. Verifica o Python e o ffmpeg e instala por `winget` só o que faltar. No fim, feche a janela e execute-o outra vez para confirmar.
+- **macOS / Linux:** `./instalar.sh` (usa Homebrew ou apt).
+
 ## Como arrancar
 
 - **Windows:** faça duplo clique em `start.bat`.
