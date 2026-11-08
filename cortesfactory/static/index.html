@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CortesFactory</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>CortesFactory</h1>
+      <p class="muted">Cortes verticais 9:16 a partir de vídeos longos</p>
+    </div>
+    <span id="ffmpeg-state" class="pill">a verificar…</span>
+  </header>
+
+  <main>
+    <div id="setup-banner" class="banner hidden">
+      <strong>ffmpeg não encontrado.</strong>
+      Instale o ffmpeg e reinicie o CortesFactory. No Windows, use <code>winget install Gyan.FFmpeg</code>
+      e feche e abra a janela de comandos.
+    </div>
+
+    <section class="card">
+      <h2>1. Vídeo original</h2>
+      <div class="row">
+        <input id="video-path" type="text" placeholder="Ex.: C:\Gravacoes\episodio-12.mp4" autocomplete="off">
+        <button id="analyze-btn" class="secondary" type="button">Analisar</button>
+      </div>
+      <p id="video-info" class="muted small">Cole o caminho completo do ficheiro. No Explorador do Windows: clique com o botão direito no vídeo, com Shift premido, e escolha «Copiar como caminho».</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Enquadramento</h2>
+      <label class="option">
+        <input type="radio" name="mode" value="blur" checked>
+        <span><strong>Vídeo inteiro com fundo desfocado</strong><br><span class="muted small">Não corta ninguém. Recomendado para conversas e entrevistas.</span></span>
+      </label>
+      <label class="option">
+        <input type="radio" name="mode" value="crop">
+        <span><strong>Enquadramento central</strong><br><span class="muted small">Preenche o ecrã vertical e corta as laterais.</span></span>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>3. Cortes</h2>
+      <p class="muted small">Tempos no formato <code>HH:MM:SS</code>, <code>MM:SS</code> ou <code>SS</code>.</p>
+
+      <div id="cut-rows" class="cut-rows"></div>
+      <button id="add-cut-btn" class="secondary" type="button">+ Adicionar corte</button>
+
+      <details class="paste">
+        <summary>Colar uma lista de cortes</summary>
+        <p class="muted small">Uma linha por corte: <code>início - fim - título</code>. O título é opcional.</p>
+        <textarea id="paste-box" rows="5" placeholder="00:01:20 - 00:02:05 - Porque sai da zona de conforto&#10;00:14:03 - 00:14:50 - O erro mais caro"></textarea>
+        <button id="paste-btn" class="secondary" type="button">Adicionar à lista</button>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>4. Pasta de saída</h2>
+      <input id="output-dir" type="text" placeholder="Vazio = pasta 'cortes_verticais' junto ao vídeo" autocomplete="off">
+    </section>
+
+    <div class="actions">
+      <button id="generate-btn" class="primary" type="button">Gerar cortes</button>
+      <span id="message" class="message" role="status" aria-live="polite"></span>
+    </div>
+
+    <section id="progress-card" class="card hidden">
+      <h2>Progresso</h2>
+      <div class="bar"><div id="bar-fill"></div></div>
+      <p id="progress-text" class="muted small"></p>
+      <ul id="clip-list" class="clip-list"></ul>
+      <p id="open-folder" class="muted small"></p>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
