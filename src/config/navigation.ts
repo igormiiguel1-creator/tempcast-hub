@@ -9,6 +9,7 @@ import {
   ListChecks,
   Map,
   Mic2,
+  MessagesSquare,
   Network,
   Settings,
   Users,
@@ -26,6 +27,7 @@ export const navigationItems = [
   { title: "Parceiros", href: "/parceiros", icon: Handshake },
   { title: "Biblioteca", href: "/biblioteca", icon: Library },
   { title: "Relatórios", href: "/relatorios", icon: BarChart3 },
+  { title: "Análise de Conversas", href: "/analise-conversas", icon: MessagesSquare },
   { title: "IA", href: "/ia", icon: Bot },
   { title: "Configurações", href: "/configuracoes", icon: Settings },
 ] as const;
